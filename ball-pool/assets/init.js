@@ -9,6 +9,6 @@ $(function(){
 
 	$('.footer-banner').html(buf.join(''));
 	/*头部导航*/
-
+	$('body').append('<div class="top-banner clearfix"><div class="fl"><a href="http://www.yyyweb.com/377.html" target="_blank">&lt;&lt;东羽作品 HTML5 & CSS3 效果【附源码下载】</a></div><div class="fr"></div></div>');
 
 });
