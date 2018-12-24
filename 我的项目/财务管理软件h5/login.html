@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<style type="text/css">
+			
+		
+		</style>
+		<script type="text/javascript">
+			function tz() {
+				if(document.forms[0].name.value == '123456' && document.forms[0].pw.value == '123456'){
+					self.location='plus/menu.html';
+				}else{
+					alert('用户名或密码不正确,请重新输入');
+				}
+				return false;
+			}
+		
+		</script>
+	</head>
+	<body style="background-color: cadetblue; width:100%;height:100%">
+		<header>
+			<span>我的财务管理</span>
+		</header>
+		<div style="width: 300px;height:250px;background-color: gainsboro;margin:200px auto;border: 2px solid gray;">
+			<form onsubmit="return tz(this)" action="" method="post" style="display: inline-block;margin-left: 25px;margin-top: 19px;">
+				<p>
+					账号：<input id="name" type="text" name="name" id="zh" autofocus="true" value="" style="height: 24px;" />
+				</p>
+				<p>
+					密码：<input id="pw" type="password" name="pw" value="" style="height: 24px;" />
+				</p>
+				<br /><br />
+				
+					<input type="submit" name="submit" value="登录" style="display: inline-block;position: absolute; margin-left: 82px;width: 65px;height: 35px; font-size: 20px;color: brown;" />
+					
+				
+			</form>
+			
+			
+		</div>
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

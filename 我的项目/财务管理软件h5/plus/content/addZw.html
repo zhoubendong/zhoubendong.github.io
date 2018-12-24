@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+		<script type="text/javascript" src="../../js/content.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript">
+			var interfaceAddress = getAddress();
+			var url = "http://"+ interfaceAddress +"/bill/addBill";
+			
+			
+			
+			function tc() {
+				document.getElementById('add').action =url;
+				if(document.forms[0].summary.value != null && document.forms[0].billMonth.value != null && document.forms[0].billYear.value != null && document.forms[0].billDay.value != null ){
+					alert('添加成功');
+					self.location='../menu.html';
+				
+				}else{
+					alert('添加失败');
+				}
+		
+			}
+//			function saveReport() { 
+//				
+//				document.getElementById('add').action =url;	 
+//			} 
+	
+		</script>
+	</head>
+	
+	<body style="background-color: cadetblue; width: 100%;height: 100%;">
+		<header>
+			<div class="nvbt iback"  onclick="location.href='../menu.html'"></div>
+			<div class="nvtt">添加财务</div>
+		</header>
+		<div class="wrapper" style="width: 350px;height:600px;background-color: gainsboro;margin:50px auto;border: 2px solid gray;">
+			
+			<form onsubmit="tc();" id="add" action="" method="post" style="display: inline-block;margin-left: 65px;margin-top: 60px;">
+				
+				<p>
+				说明：<input type="text" name="summary" id= "" value="" />
+				</p>				
+				日期：&nbsp;&nbsp;<input style="display: inline-block;width: 30px;" type="text" name="billYear"  value="" />&nbsp;&nbsp;年
+				<input style="display: inline-block;width: 20px;" type="text" name="billMonth"  value="" />	&nbsp;&nbsp;月			
+				<input style="display: inline-block;width: 20px;" type="text" name="billDay"  value="" />&nbsp;&nbsp;日
+				<p>
+				金额：<input id="price" type="text" name="price" id="" value="" />
+				</p>
+				类型：
+				支出<input type="radio" name="type" id="" value="0" checked="checked"/>
+				收入<input type="radio" name="type" id="" value="1" />
+				<p>
+				<input type="submit"  value="确定" style="display: inline-block;margin-left: 65px;margin-top:80px;width: 60px;height: 30px;" />
+				</p>
+			</form>
+			
+		</div>
+	</body>
+</html>

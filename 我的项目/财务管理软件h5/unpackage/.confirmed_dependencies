@@ -1,0 +1,51 @@
+{
+  "login.html": {
+    "resources": [
+      "css/common.css",
+      "plus/menu.html"
+    ],
+    "refer": [
+      "plus/menu.html"
+    ]
+  },
+  "plus/content/queryZw.html": {
+    "resources": [
+      "js/content.js",
+      "plus/menu.html",
+      "plus/content/edit.html"
+    ],
+    "refer": [
+      "plus/menu.html",
+      "plus/content/edit.html"
+    ]
+  },
+  "plus/menu.html": {
+    "resources": [
+      "plus/content/queryZw.html",
+      "plus/content/addZw.html",
+      "login.html",
+      "css/common.css"
+    ],
+    "refer": [
+      "plus/content/queryZw.html",
+      "plus/content/addZw.html",
+      "login.html"
+    ]
+  },
+  "plus/content/addZw.html": {
+    "resources": [
+      "plus/menu.html",
+      "js/content.js",
+      "css/common.css",
+      "js/jquery-3.2.1.js"
+    ],
+    "refer": [
+      "plus/menu.html"
+    ]
+  },
+  "plus/content/edit.html": {
+    "resources": [
+      "js/jquery-3.2.1.js"
+    ]
+  }
+}

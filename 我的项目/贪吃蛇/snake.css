@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.startPage{
+    width:100%;
+    z-index: 999;
+    height:840px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.startBtn{
+    background-image: url('img/startGame.png');
+    height: 170px;
+    width: 200px;
+    background-size: 100% 100%;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.wapper{
+    width: 100%;
+    height: 840px;
+    background-image: url('img/bg.jpg');
+    background-size: 100% 100%;
+    position: relative;  
+}
+.left-side{
+    width: 24%;
+    height: 840px;
+    position: absolute;
+}
+.left-side img{
+    display: none;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.main{
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 90%;
+}
+.header{
+    width: 100%;
+    height: 80px;
+    text-align: center;
+}
+.score{
+    line-height: 80px;
+    color: #ddd;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.content{
+    position: absolute;
+    width: 79.5%;
+    height: 36.5%;
+    left: 10%;
+    top: 34%;
+}
+.loser{
+    display: none;
+    position: 100%;
+    height: 840px;
+    top: 0;
+    left: 0;
+}
+.con{
+    background-image: url('img/startP.jpg');
+    background-size: 100% 100%;
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+}
+.loserScore{
+    display: block;
+    height: 30px;
+    width: 40px;
+    position: absolute;
+    top: 42%;
+    left: 40%;
+    color: #222;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    background-image: url('img/closeBtn.png');
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+.food{
+    background-image: url('img/apple.png');
+    background-size: 100% 100%;
+}
+.head{
+    background-image: url('img/head.png');
+    background-size: 100% 100%;
+}
+.body{
+    background-image: url('img/body.png');
+    background-size: 100% 100%;
+}
+
+
+
+

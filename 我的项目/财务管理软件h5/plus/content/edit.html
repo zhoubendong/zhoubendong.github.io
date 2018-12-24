@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="../../js/content.js"></script>
+		<script type="text/javascript">
+			
+			
+			/* 用途: 接收地直栏参数 取id=1 根据ID的值 */
+			var urlinfo=window.location.href; //获取当前页面的url
+			var len=urlinfo.length;//获取url的长度
+			var offset=urlinfo.indexOf("?");//设置参数字符串开始的位置
+			var newsidinfo=urlinfo.substr(offset,len)//取出参数字符串 这里会获得类似“id=1”这样的字符串
+			var newsids=newsidinfo.split("=");//对获得的参数字符串按照“=”进行分割
+			var newsid=newsids[1];//得到参数值
+//			$("#updateid").val(newsid);
+			var interfaceAddress = getAddress();
+			var url = "http://"+ interfaceAddress +"/bill/queryBillById?id="+newsid+""
+
+			window.onload = function loadUsers(){
+				var xhr = new XMLHttpRequest();		
+				xhr.open("get",url,true);			
+				xhr.onload = function(){
+					if (this.status == 200) {
+						var users = JSON.parse(this.responseText);						
+	//						alert(users[i].summary);
+							document.getElementById('sm').value = users.summary;
+							document.getElementById('year').value = users.billYear;
+							document.getElementById('month').value = users.billMonth;
+							document.getElementById('day').value = users.billDay;
+							document.getElementById('price').value = users.price;
+							document.getElementById('updateid').value = newsid;
+							if(users.type == 1) {
+								document.getElementById('sr').checked="checked";
+							}else if(users.type == 0){
+								document.getElementById('zc').checked="checked";
+							}
+					}
+				}
+				xhr.send();
+			 }
+			function tzb() {
+				document.getElementById('edit').action = "http://"+ interfaceAddress +"/bill/updateBillWeb";
+					
+			}	
+		</script>
+	</head>
+	
+	<body style="background-color: cadetblue; width: 100%;height: 100%;">
+		<header>
+			<div class="nvbt iback"  onclick="location.href='../menu.html'"></div>
+			<div class="nvtt">修改账单</div>
+		</header>
+		<div class="wrapper" style="width: 350px;height:600px;background-color: gainsboro;margin: 50px auto;border: 2px solid gray;">
+			<form onsubmit="tzb()" id="edit"  action="" method="post" style="display: inline-block;margin-left: 65px;margin-top: 60px;">
+				<input type="hidden" name="id" id="updateid" value="" />
+				<p>
+				说明：<input type="text" name="summary" id= "sm" value="" />
+				</p>				
+				日期：&nbsp;&nbsp;<input style="display: inline-block;width: 30px;" type="text" name="billYear" id="year" value="" />&nbsp;&nbsp;年
+				<input style="display: inline-block;width: 20px;" type="text" name="billMonth" id="month" value="" />	&nbsp;&nbsp;月			
+				<input style="display: inline-block;width: 20px;" type="text" name="billDay" id="day" value="" />&nbsp;&nbsp;日
+				<p>
+				金额：<input id="price" type="text" name="price" value="" />
+				</p>
+				类型：
+				支出<input type="radio" name="type" id="zc" value="0" />
+				收入<input type="radio" name="type" id="sr" value="1" />
+				<p>
+				<input type="submit"  value="确定" style="display: inline-block;margin-left: 65px;margin-top:80px;width: 60px;height: 30px;" />
+				</p>
+			</form>
+		</div>
+	</body>
+</html>

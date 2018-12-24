@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+		<script type="text/javascript" src="../../js/content.js"></script>
+	<!--	<script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>-->
+		<script type="text/javascript">		
+			var interfaceAddress = getAddress();
+			var url = "http://"+ interfaceAddress +"/bill/queryAllBill"
+			window.onload = function loadUsers(){
+			var xhr = new XMLHttpRequest();
+			
+			xhr.open("get",url,true);
+			xhr.onload = function(){
+				if (this.status == 200) {
+					var users = JSON.parse(this.responseText);
+				
+					var output = '';
+					for(var i in users.list){
+						if(users.list[i].type == 1)	{
+									users.list[i].type = '收入';
+								}else if(users.list[i].type == 0) {
+									users.list[i].type = '支出';
+								}	
+						output += 
+							'<tr>' +
+	              			'<td>'+ users.list[i].billYear + '.' + users.list[i].billMonth + '.' + users.list[i].billDay  + '</td>' +
+	              			'<td>'+ users.list[i].type + '</td>' +
+	              			'<td>'+ users.list[i].price + '</td>' +
+	              			'<td>'+ users.list[i].summary + '</td>' +
+	     					'<td>'+ '<a href="../content/edit.html?id='+users.list[i].id+'">' + '<button >' + '编辑' + '</button>' + '</a>' +	'</td>'
+	              		'</tr>'
+					}
+					document.getElementById('tab').innerHTML += output;
+				}
+			}
+			xhr.send();
+		}
+
+		</script>
+	</head>
+	<body style="background-color: lemonchiffon; width:100%;height:100%">
+		<header>
+			<div class="nvbt iback" onclick="location.href='../menu.html'"></div>
+			<span>我的账单</span>
+		</header>
+		<input type="text" id="id" value=" "/>
+		<table id="tab" border="1" width="350px" style=";margin:25px auto;">
+			<tr height="40px" bgcolor="gold" >
+				<th>时间</th>
+				<th>类型</th>
+				<th>金额</th>
+				<th>说明</th>
+				<th>编辑</th>
+			</tr>
+			
+		</table>
+	</body>
+</html>
+
+	

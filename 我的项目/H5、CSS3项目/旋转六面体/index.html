@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 1000px;
+            height: 150px;
+            background: #eee;
+            margin: 20px auto;
+        }
+        p{ 
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            float: left;
+            margin: 20px;
+            transform-style: preserve-3d;
+            perspective: 500px;     /*越小，3D效果越明显*/
+        }
+        span{
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: rgba(255,0,0,.5);
+            transition: all 1s;
+        }
+        p:nth-child(1) span:hover{
+            transform: rotateX(45deg);
+        }
+        p:nth-child(2) span:hover{
+            transform: rotateY(45deg);
+        }
+        p:nth-child(3) span:hover{
+            transform: rotateZ(45deg);
+        }
+        .box1{
+            width: 300px;
+            height: 300px;
+            background: #eee;
+            margin: 0 auto;
+            position: relative;
+            perspective: 700px;
+            
+            /* perspective-origin: left top; */
+        }
+        .box1 ul{
+            width: 150px;
+            height: 150px;
+            /* border: 1px solid #000; */
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            transform-style: preserve-3d;
+            transition: all 5s;
+            animation: bb 10s linear infinite alternate;
+        }
+        @keyframes bb{
+            0%{
+                transform: rotateX(720deg) rotateY(720deg);
+            }
+            100%{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+        }
+        /* .box1 ul:hover{
+            transform: rotateX(360deg) rotateY(360deg);
+        } */
+        ul li{
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            font-size: 48px;
+            position: absolute;
+            /* backface-visibility: hidden; */
+        }
+        ul li:nth-child(1){
+            background: rgba(255,0,0,.5);
+            transform: translateY(-75px) rotateX(90deg);
+        }
+        ul li:nth-child(2){
+            background: rgba(0,255,0,.5);
+            transform: translateY(75px) rotateX(-90deg);
+        }
+        ul li:nth-child(3){
+            background: rgba(0,0,255,.5);
+            transform: translateX(-75px) rotateY(-90deg);
+        }
+        ul li:nth-child(4){
+            background: rgba(255,0,255,.5);
+            transform: translateX(75px) rotateY(90deg);
+        }
+        ul li:nth-child(5){
+            background: rgba(255,255,0,.5);
+            transform: translateZ(75px);
+        }
+        ul li:nth-child(6){
+            background: rgba(0,255,255,.5);
+            transform: translateZ(-75px) rotateY(180deg);
+        }
+        .wapper{
+            width: 500px;
+            height: 400px;
+            background: #eee;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            position: relative;
+            animation: aa 2s linear infinite alternate;
+            /* animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate; */
+        }
+       
+        @keyframes aa {
+            0%{
+                left: 0;
+                top: 0;
+            }
+            25%{
+                left: 200px;
+                top:0;
+                transform: scale(2);
+                background: #0f0;
+            }
+            50%{
+                left: 200px;
+                top: 200px;
+                transform: scale(3);
+                background: #00f;
+            }
+            75%{
+                left: 0;
+                top: 200px;
+                transform: scale(2);
+                background: #ff0;
+            }
+            100%{
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p><span>X轴旋转</span></p>
+        <p><span>Y轴旋转</span></p>
+        <p><span>Z轴旋转</span></p>
+    </div>
+    <div class="box1">
+        <ul>
+            <li>2</li>
+            <li>5</li>
+            <li>3</li>
+            <li>4</li>
+            <li>1</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <div class="wapper">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

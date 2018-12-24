@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<script type="text/javascript">
+			function add() {
+				window.location.href="../plus/content/addZw.html"
+			}
+			
+			function query() {
+				window.location.href="../plus/content/queryZw.html"
+			}
+			function quit() {
+				self.location='../login.html'
+			}
+		</script>
+	</head>
+		
+	<body style="background-color: cadetblue; width: 100px;height: 100px;">
+		<header>
+			<span>我的财务管理</span>
+		</header>
+		<div class="wrapper" style="margin: 60px auto; ">
+			
+			<div onclick="add()" style="width:400px;height:60px;background-color: gainsboro;line-height: 60px;text-align: center;border: 1px solid black;">1.&nbsp;添加账务</div>
+			
+			<div onclick="query()" style="width:400px;height:60px;background-color: gainsboro;line-height: 60px;text-align: center;border: 1px solid black;">2.&nbsp;查询账务</div>
+			<div onclick="quit()" style="width:400px;height:60px;background-color: gainsboro;line-height: 60px;text-align: center;border: 1px solid black;">3.&nbsp;退出系统</div>
+		</div>
+	</body>
+</html>

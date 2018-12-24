@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#content{width: 300px;height:600px;border-radius: 25px;border:5px solid #ded6c6;margin:auto;position: relative;}
+#div1{width:240px;height:420px;border:3px solid #212110;position: absolute;top:75px;left:25px;}
+#con1{width:240px;height:370px;border-bottom: 1px solid #bdcec6;}
+#con2{position:relative;}
+#img{width:30px;height:30px;border-radius: 5px; border: 1px solid #bdcec6;position:absolute;top:8px;left:5px;}
+#text{width:140px; height:28px;position:absolute;left:40px;top:8px;border-radius: 5px;border: 1px solid #bdcec6;}
+#btn{width:50px; height:30px;position:absolute;right:5px;top:8px;border-radius: 5px;border: 1px solid #bdcec6;font-size: 18px;font-weight: bold;color:#8c8494;}
+.bor{width:80px;height:30px;position: absolute;bottom:30px;left:105px;border-radius: 5px;border: 2px solid #ded6c6;}
+
+</style>
+<script >
+	window.onload=function(){
+		var oCon1=document.getElementById('con1');
+		var oImg=document.getElementById('img');
+		var oText=document.getElementById('text');
+		var oBtn=document.getElementById('btn');
+
+		var arrImg=['img/1.png','img/2.png','img/3.png','img/4.png'];
+			num = 0;
+			onOff=true;
+		oImg.onclick=function(){
+			num ++;
+			if(num == arrImg.length){
+				num=0;
+			}
+			oImg.src=arrImg[num];		
+			// return num;
+
+		}
+		oBtn.onclick=function(){
+			
+			// var img = document.createElement('img');
+			// var text = document.createTextNode(oText.value);
+			// var br = document.createElement('br');
+			// img.src = arrImg[num];
+			// oCon1.appendChild(text);	
+			// oCon1.appendChild(img);	
+			// oCon1.appendChild(br);					
+			oCon1.innerHTML+= oText.value+"<img src="+arrImg[num]+">"+'<br>';
+			oText.value="";			
+		}
+
+	}
+</script>
+</head>
+
+<body>
+<div id="content">
+	<div id="div1">
+		<div id="con1"></div>
+		<div id="con2">
+    		<img id="img" src="img/1.png">
+    		<input id="text" type="text">
+    		<input id="btn" type="button" value="发送">
+    	</div>
+    	
+    </div>
+    <div class="bor"></div>
+</div>
+</body>
+</html>
