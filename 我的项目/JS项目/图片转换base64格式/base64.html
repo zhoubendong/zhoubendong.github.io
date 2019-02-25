@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>图片转换为base64</p>
+    图片：<input type="file" id="img"><button onclick="copyit()">复制</button> <br><br>
+    <button onclick="toBase64()">转换base64</button>
+    base64字符串：<textarea id="base64String" cols="60" rows="15"></textarea><br>
+    图片预览：<img id="preview">
+</body>
+<script>
+    let img = document.querySelector('#img');
+    function toBase64() {
+        var fileReader = new FileReader();
+        fileReader.readAsDataURL(img.files[0]);
+        fileReader.onload = function() {
+            var imgBase64Data = this.result;
+            document.querySelector('#base64String').value = imgBase64Data;
+            document.querySelector('#preview').setAttribute('src',imgBase64Data);
+        }
+        
+    }
+    function copyit() {
+
+            document.getElementById("base64String").select(); 
+		    document.execCommand("copy"); 
+        }
+</script>
+</html>
