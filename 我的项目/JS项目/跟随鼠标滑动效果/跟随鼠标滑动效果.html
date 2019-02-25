@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+
+            position: relative;
+            width: 350px;
+            font-size: 0px;
+            margin: 200px auto;
+        }
+
+        .red {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            width: 40px;
+            background: red;
+            opacity: 0.5;
+        }
+
+        li {
+            box-sizing: border-box;
+            list-style: none;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <div class="red"></div>
+    </ul>
+</body>
+<script>
+    var li = document.getElementsByTagName('li');
+    var red = document.getElementsByClassName('red')[0];
+    function getIndex(target) {
+        for (var i = 0; i < li.length; i++) {
+            if (target == li[i]) {
+                return i;
+            }
+        }
+    }
+    var lastIndex = 0,
+        nowIndex = 0;
+    var timer1 = null;
+    for (let i = 0; i < li.length; i++) {
+        li[i].onmouseover = function () {
+            var self = this;
+            clearInterval(timer1);//防止移动过快red没移动到就变了位置。
+            var nowIndex = getIndex(self);
+            var step = nowIndex - lastIndex;
+            timer1 = setInterval(function () {
+                red.style.left = red.offsetLeft + step + 'px';
+                if (Math.abs(red.offsetLeft - nowIndex * 40) < 15) {
+                    red.style.left = nowIndex * 40 + "px";
+                    lastIndex = nowIndex;
+                }
+            }, 10)
+        }
+    }
+
+
+
+
+
+</script>
+
+</html>
