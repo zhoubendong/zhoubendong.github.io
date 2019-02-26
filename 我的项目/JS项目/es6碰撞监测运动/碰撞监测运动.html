@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运动,碰撞监测</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div{
+            width: 100px;
+            height: 100px;
+            background: black;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+
+        div:nth-of-type(2) {
+            width: 150px;
+            height: 150px;
+            background: rgb(165, 70, 70);
+            left: 500px;
+            top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <script>
+        var speedX = 5;
+        var speedY = 3;
+      
+        var div1 = document.querySelector('div');
+        var div2 = document.querySelector('div:nth-of-type(2)');
+        div1.speedX = 5;
+        div1.speedY = 3;
+        div2.speedX = 5;
+        div2.speedY = 3;
+
+        function move(elem) {
+            var leftX = parseInt(window.getComputedStyle(elem).left);
+            var topY = parseInt(window.getComputedStyle(elem).top);
+            
+            check_border(elem);
+            var tempX,tempY;
+            if(check_block(div1,div2)) {
+                tempX = div1.speedX;
+                tempY = div1.speedY;
+
+                div1.speedX = div2.speedX;
+                div1.speedY = div2.speedY;
+
+                div2.speedX = tempX;
+                div2.speedY = tempY;             
+            }
+
+            var left = leftX + elem.speedX;
+            var top = topY + elem.speedY;
+            elem.style.left = left + 'px';
+            elem.style.top = top + 'px';
+
+           
+        }
+        function check_border(elem) {
+            var style = window.getComputedStyle(elem);
+            var left = parseInt(style.left);
+            var top = parseInt(style.top);
+            var width = parseInt(style.width);
+            var height = parseInt(style.height);
+            if (left < 0) {
+                left = 0;
+                elem.speedX *= -1;
+            }
+            if (left >window.innerWidth - width) {
+                elem.speedX *= -1;
+            }
+            if (top < 0) {
+                elem.speedY *= -1;
+            }
+            if (top > window.innerHeight - height) {
+                elem.speedY *= -1;
+            }
+        }
+        
+        function check_block(block1,block2) {
+            var left1 = parseInt(window.getComputedStyle(block1).left);
+            var left2 = parseInt(window.getComputedStyle(block2).left);
+
+            var top1 = parseInt(window.getComputedStyle(block1).top);
+            var top2 = parseInt(window.getComputedStyle(block2).top);
+
+            var width1 = parseInt(window.getComputedStyle(block1).width);
+            var width2 = parseInt(window.getComputedStyle(block2).width);
+
+            var height1 = parseInt(window.getComputedStyle(block1).height);
+            var height2 = parseInt(window.getComputedStyle(block2).height);
+
+            var center1 = {
+                x : left1 + width1 / 2,
+                y : top1 + height1 / 2             
+            }
+            var center2 = {
+                x : left2 + width2 / 2,
+                y : top2 + height2 / 2             
+            }
+            var diffX = Math.abs(center1.x - center2.x);
+            var diffY = Math.abs(center1.y - center2.y);
+            if(diffX < (width1 + width2) / 2 && diffY < (height1 + height2) / 2) {
+                return true;
+            }
+            return false;
+        }
+
+        setInterval(function () {
+            move(div1);
+            move(div2);
+          },20);
+    </script>
+</body>
+
+</html>
