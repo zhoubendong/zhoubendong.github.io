@@ -57,18 +57,22 @@ export default {
           content: "",
           categories:[],
           author:"",
+          createdate:"2",
       },
       authors: ["东羽1号","东羽2号","东羽3号","东羽4号"],
       submmited: false
     }
   },
   methods: {
-      
+    
       post: function() {//将数据发送出去
+          this.blog.createdate = new Date().toLocaleDateString();
+          // console.log(this.createdate)
           this.$http.post("https://myblog-77e0b.firebaseio.com/posts.json",this.blog)
             .then(function(data) {
-            //   console.log(data);
+              // console.log(this.createdate);
               this.submmited = true;
+
             })
       }
   }

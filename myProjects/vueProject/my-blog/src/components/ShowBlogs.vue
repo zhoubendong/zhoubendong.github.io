@@ -5,8 +5,12 @@
     请搜索标题关键字查询：<input type="text" v-model="search" placeholder="搜索">
     <div v-for="blog in filteredBlogs" class="single-blog">
       <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
-      <div>
-        <span>作者：{{blog.author}}</span>&nbsp;&nbsp;&nbsp;
+      <div class="wapper"> 
+        <img src="../assets/时间.png">
+        <span>创建时间：{{blog.createdate}}</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <img src="../assets/icon_principal.png">
+        <span>作者：{{blog.author}}</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <img src="../assets/icon_workfile_line.png">
         <span>分类：</span>
         <ul>
                 <li v-for="category in blog.categories">{{category}}</li>
@@ -47,8 +51,8 @@ export default {
             blogsArray.push(data[key]);
           }
           // console.log(blogsArray);
-          this.blogs = blogsArray;
-          // console.log(this.blogs)
+          this.blogs = blogsArray.reverse();
+          console.log(this.blogs)
         })
   },
       //    搜索功能 
@@ -77,6 +81,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+span{
+  color:#666;
+}
 #show-blogs{
   max-width: 800px;
   margin: 0 auto;
@@ -88,11 +95,23 @@ export default {
   background: #eee;
   border: 1px dotted #777;
 }
+.single-blog h2{
+  margin: 15px 0 10px 0;
+}
+.wapper{
+  margin: 5px 0 16px 0;
+}
+img{
+  width: 35px;
+  height: 35px;
+  vertical-align: -6px;
+}
 ul,li{
     text-decoration: none;
     display: inline-block;
     margin:0;
     padding: 0;
+    color:#666;
 }
 ul{
     margin-bottom: 15px;
