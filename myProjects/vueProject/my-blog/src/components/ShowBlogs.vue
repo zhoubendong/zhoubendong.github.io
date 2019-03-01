@@ -13,7 +13,7 @@
         <img src="../assets/icon_workfile_line.png">
         <span>分类：</span>
         <ul>
-                <li v-for="category in blog.categories">{{category}}</li>
+                <li v-for="category in blog.categories" :key="category">{{category}}</li>
         </ul>
       </div>
       <article>
@@ -36,7 +36,7 @@ export default {
     }
   },
   created(){
-    this.$http.get("https://myblog-77e0b.firebaseio.com/posts.json")//本地的json文件只能放在static文件夹下
+    this.$http.get("https://wd7869756315ozmdzd.wilddogio.com/posts.json")//本地的json文件只能放在static文件夹下
         .then(function(data){
           // console.log(data.json());
           // this.blogs = data.body.slice(0,10);// 只展示第0至10条

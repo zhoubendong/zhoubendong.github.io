@@ -24,7 +24,7 @@ export default {
   },
   created() {
 
-    this.$http.get("https://myblog-77e0b.firebaseio.com/posts/" + this.id + ".json")
+    this.$http.get("https://wd7869756315ozmdzd.wilddogio.com/posts/" + this.id + ".json")
       .then(function(data) {
         console.log(data);
         return data.json();

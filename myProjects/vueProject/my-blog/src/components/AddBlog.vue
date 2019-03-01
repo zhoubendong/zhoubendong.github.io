@@ -24,7 +24,7 @@
         </div>
         <label for="">作者：</label>
         <select v-model="blog.author">
-            <option v-for="author in authors">{{author}}</option>
+            <option v-for="author in authors" :key="author">{{author}}</option>
         </select>
         <button v-on:click.prevent="post">添加博客</button><!-- prevent阻止刷新界面 -->
     </form>
@@ -39,7 +39,7 @@
         <p>{{blog.content}}</p>
         <p>博客分类：</p>
         <ul>
-            <li v-for="category in blog.categories">{{category}}</li>
+            <li v-for="category in blog.categories" :key="category">{{category}}</li>
         </ul>
         <p>作者：{{blog.author}}</p>
     </div>
@@ -68,7 +68,7 @@ export default {
       post: function() {//将数据发送出去
           this.blog.createdate = new Date().toLocaleDateString();
           // console.log(this.createdate)
-          this.$http.post("https://myblog-77e0b.firebaseio.com/posts.json",this.blog)
+          this.$http.post("https://wd7869756315ozmdzd.wilddogio.com/posts.json",this.blog)
             .then(function(data) {
               // console.log(this.createdate);
               this.submmited = true;
