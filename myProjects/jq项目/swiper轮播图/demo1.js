@@ -7,7 +7,7 @@ $(document).ready(function () {
 
 	var mySwiper = new Swiper('.swiper-container', {
 		// direction: 'vertical', // 垂直切换选项
-		centeredSlides: true,
+		centeredSlides: true,// 活动块居中
 		loop: true, // 循环模式选项
 		spaceBetween: 30,
 		autoplay: {
