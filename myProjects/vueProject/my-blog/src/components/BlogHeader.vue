@@ -25,6 +25,7 @@ span{
     font-weight: bolder;
     display: inline-block;
     margin-top:40px;
+    margin-bottom: 13px;
 }
 ul{
     display: inline-block;
@@ -44,7 +45,7 @@ a{
 }
 nav{
     background: #2c3e50;
-    height:110px;
+    height:128px;
     text-align: center
     /* line-height:130px; */
     /* margin-bottom:40px; */
