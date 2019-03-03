@@ -1,15 +1,14 @@
 <template>
   <div id="add-blog">
-    <h2>添加博客</h2>
-    <hr>
+    <h2 v-if="!submmited">添加博客</h2>
+    <hr v-if="!submmited">
     <form action="" v-if="!submmited">
         <label for="">博客标题</label>
         <input type="text" v-model="blog.title" required>
         <label for="">博客内容</label>
         <textarea cols="30" rows="10" v-model="blog.content" ></textarea>
         <!-- <label for="">添加图片</label>
-        <input type="file" id="img">
-        <div class="img"></div> -->
+        <input type="file" id="img"> -->
         <div id="checkboxes">
             <label for="">Vue.js</label>
             <input type="checkbox" value="Vue.js" v-model="blog.categories">
@@ -47,6 +46,8 @@
 </template>
 
 <script>
+import axios from '../axios-auth.js'
+
 export default {
     //http://jsonplaceholder.typicode.com/posts 测试接口
   name: 'add-blog',
@@ -68,12 +69,12 @@ export default {
       post: function() {//将数据发送出去
           this.blog.createdate = new Date().toLocaleDateString();
           // console.log(this.createdate)
-          this.$http.post("https://wd7869756315ozmdzd.wilddogio.com/posts.json",this.blog)
-            .then(function(data) {
-              // console.log(this.createdate);
-              this.submmited = true;
-
-            })
+         axios.post("/posts.json",this.blog)
+              .then((data)=>{
+                // console.log(this.createdate);
+                this.submmited = true;
+              })
+            
       }
   }
 }
@@ -82,7 +83,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 hr{    
-    border: 2px dotted gray;
+    border: 2px solid gray;
 }
 #add-blog *{
   box-sizing: border-box;

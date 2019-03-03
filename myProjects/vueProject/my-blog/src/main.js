@@ -3,14 +3,24 @@
 //  模块化的引入时不用加文件后缀
 import Vue from 'vue'
 import App from './App'
-import VueResource from 'vue-resource'//使用get、post方法
+// import VueResource from 'vue-resource'//使用get、post方法
 import VueRouter from 'vue-router'
 import Routes from './routes'
+// import axios from './axios-auth'
 
 
+
+// 全局配置
+// axios.defaults.baseURL = 'https://wd7869756315ozmdzd.wilddogio.com'
+// axios.defaults.headers.common['Authorization'] = 'Token'
+// axios.defaults.headers.post['Content-type'] = 'application/urlencode'
+// axios.defaults.headers.get['Accepts'] = 'application/json'
+
+
+// Vue.use(axios)
 Vue.config.productionTip = false
 
-Vue.use(VueResource)
+// Vue.use(VueResource)
 Vue.use(VueRouter)
          //  自定义指令
 

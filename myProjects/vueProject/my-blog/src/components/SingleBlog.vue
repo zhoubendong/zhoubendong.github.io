@@ -10,28 +10,51 @@
                 <li v-for="category in blog.categories">{{category}}</li>
             </ul>
             <article>{{blog.content}}</article>
+            <!-- <div class="like">
+                <div class="like-btn" v-on:click:prevent="postLike">
+                    <span class="like-text"></span>
+                    <span class="number"></span>
+                </div>
+            </div>
+            <div class="comment">
+                <input type="text" v-model="blogLike.likeText">
+            </div> -->
         </div>
+
     </div>
 </template>
 <script>
+import axios from '../axios-auth.js'
+
 export default {
   name: "single-blog",
   data() {
     return {
       id: this.$route.params.id,
-      blog: {}
+      blog: {},
+      blogLike: {
+          likeNumber: "20",
+          likeText:"",
+      }
     };
   },
+//    methods: {
+    
+//       postLike: function() {//将数据发送出去
+//          axios.post("/posts.json",this.blogLike)
+//               .then((data)=>{
+//                 console.log(this.blogLike);
+//               })
+            
+//       }
+//   },
   created() {
-
-    this.$http.get("https://wd7869756315ozmdzd.wilddogio.com/posts/" + this.id + ".json")
+    axios.get("/posts/" + this.id + ".json")
       .then(function(data) {
-        console.log(data);
-        return data.json();
-        // this.blog = data.body;
+        // return data.json();
+        return data.data;
       })
-      .then(function(data) {
-          console.log(data)
+      .then((data) =>{
         this.blog = data;
 
       });

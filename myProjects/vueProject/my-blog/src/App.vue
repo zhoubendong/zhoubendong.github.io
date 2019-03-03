@@ -13,13 +13,14 @@ import AddBlog from './components/AddBlog'
 import ShowBlogs from './components/ShowBlogs'
 import BlogHeader from './components/BlogHeader'
 import BlogFooter from './components/BlogFooter'
+import About from './components/About'
 
 
 
 export default {
   name: 'App',
   components: {
-    AddBlog,ShowBlogs,BlogHeader,BlogFooter
+    AddBlog,ShowBlogs,BlogHeader,BlogFooter,About
   }
 }
 </script>

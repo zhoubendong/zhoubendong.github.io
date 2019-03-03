@@ -5,6 +5,7 @@
             <li>
                 <router-link to="/" exact>博客</router-link><!-- 路由中跳转不使用a标签 -->
                 <router-link to="/add" exact>添加博客</router-link>
+                <router-link to="/about" exact>关于博主</router-link>
             </li>
         </ul>
     </nav>
