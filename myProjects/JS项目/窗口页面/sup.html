@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>子窗口</title>
+    <style>
+        body{
+            background: green;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var oBtn = document.getElementById('btn');
+            oBtn.onclick = function() {
+                // alert(opener);               
+                opener.document.write('子窗口的');       //opener就是当前子窗口的父窗口的window对象，IE不支持
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+</body>
+</html>

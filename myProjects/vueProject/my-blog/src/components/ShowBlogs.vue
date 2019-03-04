@@ -54,6 +54,7 @@ export default {
           // this.blogs = data.body.slice(0,10);// 只展示第0至10条
           // console.log(this.blogs);
           // return data.json();
+          console.log(data.data)
           return data.data
         })
         .then((data) =>{
