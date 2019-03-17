@@ -1,4 +1,4 @@
-	
+﻿	
 
 			/* 	----------- 我的 js 封装工具方法 ------------- */
 	
@@ -87,7 +87,7 @@
 
 	/*   6.    封装后的Typeof方法           */
    
-        function mytypeof(target){
+        function myTypeof(target){
             var ret = typeof(target);
             var template = {
                 "[object Array]" : "array",

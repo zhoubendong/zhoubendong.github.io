@@ -26,6 +26,7 @@
         <ul>
                 <li v-for="category in blog.categories" :key="category">{{category}}</li>
         </ul>
+        
       </div>
       <article>
         {{blog.content | snippet}}
@@ -54,7 +55,7 @@ export default {
           // this.blogs = data.body.slice(0,10);// 只展示第0至10条
           // console.log(this.blogs);
           // return data.json();
-          console.log(data.data)
+          //console.log(data.data)
           return data.data
         })
         .then((data) =>{
@@ -80,7 +81,7 @@ export default {
   //  当前组件下的局部过滤器
   filters: {
     toUppercase: function(value) {
-      return value.toUpperCase().slice(0, 40); //   让标题最多展示的长度
+      return value.charAt(0).toUpperCase() + value.slice(1,40) //  首字母大写， 让标题最多展示的长度
     },
     // 'snippet':function(value){
     //     return value.slice(0,200) + ' ...';

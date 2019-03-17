@@ -4,11 +4,8 @@ $(document).ready(function () {
     // 	$(".titleText p").text(s1);
     // 	$('.titleText img').src(s2);
     // }
-
-
     //banner
     $('#banner').easyFader();
-
     //nav
     var oH2 = document.getElementById("mnavh");
     var oUl = document.getElementById("starlist");
@@ -33,15 +30,15 @@ $(document).ready(function () {
     search
     
     */
-    $('.search_ico').click(function () {
-        $('.search_bar').toggleClass('search_open');
-        if ($('#keyboard').val().length > 2) {
-            $('#keyboard').val('');
-            $('#searchform').submit();
-        } else {
-            return false;
-        }
-    });
+    // $('.search_ico').click(function () {
+    //     $('.search_bar').toggleClass('search_open');
+    //     if ($('#keyboard').val() != '') {
+    //        console.log(1)
+
+    //     } else {
+    //         return false;
+    //     }
+    // });
 
 
     //header
@@ -117,53 +114,107 @@ $(document).ready(function () {
     // 		oUls[this.index].style.display = "block"
     // 	}	
     // };
+
     $.ajax({
         type: "get",
         data: {},
         url: "https://wd7869756315ozmdzd.wilddogio.com/posts.json",
         dataType: "json",
-
-        // async:false,  
         success: (res) => {
-
-            console.log(res)
-            //  方法二  ES6语法
-            if (res) {
-                $.each(res, (index, item) => {      
-                    console.log(item.categories)            
-                    $('.blogtab').append(`
-                        <div class="blogs" data-scroll-reveal="enter bottom over 1s">
-                        <h3 class="blogtitle">
-                         <a href="/" target="_blank">${item.title.slice(0, 40)}</a>
-                        </h3>
-                        <span class="blogpic">
-                            <a href="/" title="">
-                            <img src="images/1.jpg" alt="">
-                            </a>
-                        </span>
-                        <p class="blogtext">${item.content.slice(0, 120) + " ..."} </p>
-                        <div class="bloginfo">
-                            <ul>
-                            <li class="author">
-                                <a href="/">${item.author}</a>
-                            </li>
-                            <li class="lmname">
-                                <a href="/">${item.categories[index]}</a>
-                            </li>
-                            <li class="timer">${item.createdate}</li>
-                            <li class="view">
-                                <span>3456</span>已阅读</li>
-                            <li class="like">100</li>
-                            </ul>
-                        </div>
-                        </div>
-                    `)
-                })
+            let blogsArray = [];
+            for (let i in res) {
+                blogsArray.push(res[i]);
             }
+            let data = blogsArray.reverse();
+            show(data);
 
+            //      搜索功能      
+            $('.search_ico').click(function () {
+                $('.search_bar').toggleClass('search_open');
+                if ($('#keyboard').val() != '') {
+                    var data2 = data.filter((data) => {
+                        return data.content.match($('#keyboard').val());
+                    });
+                    show(data2);
+                } else {
+                    // console.log(data);
+                    show(data)
+                }
+            });
+
+            //   标签按钮
+            $('.lmname').click(function () {
+                var urlinfo=window.location.href; //获取当前页面的url
+                var len=urlinfo.length;//获取url的长度
+                var offset=urlinfo.indexOf("?");//设置参数字符串开始的位置
+                var newsid=urlinfo.substr(offset,len)//取出参数字符串               
+                var data3 = data.filter((data) => {
+                    return data.categories.match(newsid);
+                });
+                show(data3);
+            });
         },
         error: (error) => {
             console.log(error);
         }
     })
+
+    // var jsondata = {
+    //     email: "13920438325@163.com",
+    //     password: "123456"
+    // };
+
+    // $.ajax({
+    //     type: "post",
+    //     data: jsondata,
+    //     url: "http://localhost:5001/api/users/login",
+    //     dataType: "json",
+
+    //     // headers: {
+    //     //     Accept: "application/json; charset=utf-8"
+    //     // },
+    //     success: (res) => {
+
+    //         console.log(res);
+    //     },
+    //     error: (error) => {
+    //         console.log('请求失败');
+    //     }
+    // })
+
 });
+
+     //  最新文章
+function show(datas) {
+    $('.show_blogs').html('');
+    for (var i in datas) {
+        $('.show_blogs').append(`
+                <div class="blogs" data-scroll-reveal="enter bottom over 1s">
+                <h3 class="blogtitle">
+                 <a href="contents/blog.html" >${datas[i].title.slice(0, 35)}</a>
+                </h3>
+                <span class="blogpic">
+                    <a href="contents/blog.html" title="">
+                    <img src="images/1.jpg" alt="">
+                    </a>
+                </span>
+                <p class="blogtext">${datas[i].content.slice(0, 120) + " ..."} </p>
+                <div class="bloginfo">
+                    <ul>
+                    <li class="author">
+                        <a href="/">${datas[i].author}</a>
+                    </li>
+                    <li class="lmname">
+                        <a href="index.html?${datas[i].categories[0]}">${datas[i].categories[0]}</a>
+                    </li>
+                    <li class="timer">${datas[i].createdate}</li>
+                    <li class="view">
+                        <span>3456</span>已阅读</li>
+                    <li class="like">100</li>
+                    </ul>
+                </div>
+                </div>
+            `)
+
+    }
+}

@@ -56,7 +56,7 @@
 .pics ul li:hover span { opacity: 1; background: rgba(0,0,0,.5); }
 .blogtab { width: 100%; overflow: hidden }
 #blogtab { overflow: hidden; zoom: 1; background: #fff; width: 100%; margin: 10px 0 }
-#blogtab li { float: left; height: 40px; cursor: pointer; line-height: 40px; list-style-type: none; padding: 0 20px; }
+#blogtab li { float: left; height: 54px; line-height: 54px; list-style-type: none; padding: 0 20px; }
 #blogtab li a { color: #555 }
 #blogtab li.current, #blogtab li a:hover { color: #3690cf; }
 #tab { overflow: hidden; zoom: 1; }
@@ -72,7 +72,7 @@
 .blogs .blogpic { float: left; width: 30%; max-height: 170px; margin-right: 20px; display: block; overflow: hidden; }
 .blogs .blogpic img { width: 100%; height: auto; -webkit-transition: all 0.6s ease; -moz-transition: all 0.6s ease; -o-transition: all 0.6s ease; transition: all 0.6s ease; margin-bottom: 10px }
 .blogs .blogpic :hover img { transform: scale(1.1) }
-.blogs .blogtitle { margin: 0 0 10px 0; font-size: 20px; overflow: hidden; }
+.blogs .blogtitle { margin: 0 0 10px 0; font-size: 20px; overflow: hidden;}
 .blogs:hover .blogtitle a { color: #3690cf; }
 .blogs .blogtext { font-size: 14px; color: #566573; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3; margin-top: 20px }
 .blogs .bloginfo { overflow: hidden; margin-top: 30px; display: block }

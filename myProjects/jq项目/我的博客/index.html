@@ -14,11 +14,12 @@
   <!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"> -->
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery.js"></script>
+  <script src="js/jquery.jsonp.js"></script>
   <script src="js/jquery.easyfader.min.js"></script>
   <script src="js/hc-sticky.js"></script>
   <script src="js/main.js"></script>
   <script src="js/scrollReveal.js"></script>
- 
+
 
   <!--[if lt IE 9]>
 <script src="js/modernizr.js"></script>
@@ -60,13 +61,10 @@
           <a href="contents/about.html">关于我</a>
         </li>
       </ul>
-      <div class="searchbox">
-        <div id="search_bar" class="search_bar">   
-            <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard">
-            <p class="search_ico">
-              <span></span>
-            </p>
-          </form>
+      <div class="login">
+        <div class="login-con">
+          <img src="images/登录.png" alt="">
+          <a href="">登录</a>
         </div>
       </div>
     </nav>
@@ -101,7 +99,7 @@
         </div>
       </div>
     </div>
-    
+
     <!--banner end-->
     <div class="toppic">
       <li>
@@ -124,7 +122,7 @@
       </li>
     </div>
     <main>
-        <!-- <div class="title">
+      <!-- <div class="title">
             <div class="con">
               <a href="#" class="titleText">
                 <img src="images/188363-106.jpg">
@@ -198,8 +196,26 @@
       <div class="blogtab">
         <ul id="blogtab">
           <li class="current">最新文章</li>
-          <li>
+          <div class="searchbox">
+            <div id="search_bar" class="search_bar">
+              <form>
+                <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard">
+                <p class="search_ico">
+                  <span></span>
+                </p>
+              </form>
+            </div>
+          </div>
         </ul>
+        <div class="show_blogs"></div>
+        <div id="SOHUCS" sid="请将此处替换为配置SourceID的语句"></div>
+        <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+        <script type="text/javascript">
+          window.changyan.api.config({
+            appid: 'cyu8vXhHd',
+            conf: 'prod_c3888a6493d764ae9e4275aecd5ba977'
+          });
+        </script>
         <!-- <div class="blogs" data-scroll-reveal="enter bottom over 1s">
           <h3 class="blogtitle">
             <a href="/" target="_blank">别让这些闹心的套路，毁了你的网页设计!</a>
@@ -558,7 +574,9 @@
         <h2>博主简介</h2>
         <ul>
           <i>
-            <a href="contents/about.html"><img src="images/狼1.jpg"></a>
+            <a href="contents/about.html">
+              <img src="images/狼1.jpg">
+            </a>
           </i>
           <p>
             <b>东羽</b>，本博客用于记录平时工作和学习中的知识点，总结经验，用于分享，如有错误地方烦请指正。一直潜心研究web前端技术，一边工作一边积累经验，分享一些SEO优化等心得。</p>
@@ -673,8 +691,8 @@
   </article>
   <footer>
     <p>Design by
-        <a href="http://www.dystep.club" target="_blank">东羽博客</a>
-        <a href="#">© 2019   east  |  </a>
+      <a href="http://www.dystep.club" target="_blank">东羽博客</a>
+      <a href="#">© 2019 east | </a>
     </p>
   </footer>
   <a href="#" class="cd-top">Top</a>

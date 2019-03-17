@@ -25,6 +25,7 @@
         <select v-model="blog.author">
             <option v-for="author in authors" :key="author">{{author}}</option>
         </select>
+        
         <button v-on:click.prevent="post">添加博客</button><!-- prevent阻止刷新界面 -->
     </form>
     <div v-if="submmited">
@@ -59,6 +60,7 @@ export default {
           categories:[],
           author:"",
           createdate:"2",
+        
       },
       authors: ["东羽1号","东羽2号","东羽3号","东羽4号"],
       submmited: false
