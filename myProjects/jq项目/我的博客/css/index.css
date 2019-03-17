@@ -116,3 +116,11 @@ a.curPage { color: #19585d; font-weight: bold; }
 .place { margin: 0 0 10px 0; width: 100%; overflow: hidden;background: #fff; }
 .place a { display: block; float: left; padding: 5px 10px; background: #fff; margin:0 20px;  }
 #pagecurrent { color: #222; border-bottom: 2px solid #3690cf; display: inline-block; }
+.pinlun{
+    width:100%;
+    background: #fff;  
+    /* margin-top: 30px; */
+}
+.pinlun .pin_con{
+    margin: 20px;
+}
