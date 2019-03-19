@@ -215,6 +215,5 @@ function show(datas) {
                 </div>
                 </div>
             `)
-
     }
 }
