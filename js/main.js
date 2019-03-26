@@ -5,6 +5,8 @@ $(document).ready(function () {
     // 	$('.titleText img').src(s2);
     // }
     //banner
+
+
     $('#banner').easyFader();
     //nav
     var oH2 = document.getElementById("mnavh");
@@ -144,20 +146,25 @@ $(document).ready(function () {
 
             //   标签按钮
             $('.lmname').click(function () {
-                var urlinfo=window.location.href; //获取当前页面的url
-                var len=urlinfo.length;//获取url的长度
-                var offset=urlinfo.indexOf("?");//设置参数字符串开始的位置
-                var newsid=urlinfo.substr(offset,len)//取出参数字符串               
-                var data3 = data.filter((data) => {
-                    return data.categories.match(newsid);
-                });
-                show(data3);
+
+                // var list = this.$('.show_blogs').find(".blogs");
+                // $.each(list, function (idx, element) {
+                //     alert($('blogs').index());
+                // });
+                // console.log($('.show_blogs').index(this));
+                // var newsid = $('.lmname a').text()
+                // console.log(newsid)
+                // var data3 = data.filter((data) => {
+                //     return data.categories.match(newsid);
+                // });
+                // show(data3);
             });
         },
         error: (error) => {
             console.log(error);
         }
     })
+
 
     // var jsondata = {
     //     email: "13920438325@163.com",
@@ -184,7 +191,7 @@ $(document).ready(function () {
 
 });
 
-     //  最新文章
+//  最新文章
 function show(datas) {
     $('.show_blogs').html('');
     for (var i in datas) {
@@ -205,7 +212,7 @@ function show(datas) {
                         <a href="/">${datas[i].author}</a>
                     </li>
                     <li class="lmname">
-                        <a href="index.html?${datas[i].categories[0]}">${datas[i].categories[0]}</a>
+                        <a href="#">${datas[i].categories[0]}</a>
                     </li>
                     <li class="timer">${datas[i].createdate}</li>
                     <li class="view">
@@ -215,6 +222,8 @@ function show(datas) {
                 </div>
                 </div>
             `)
-
     }
 }
+
+
+
