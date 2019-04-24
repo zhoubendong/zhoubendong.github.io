@@ -32,7 +32,7 @@ export default {
 <style>
 #home{
     background: url('../../src/assets/timg.jpg');
-    height: 80vh;       /* 70vh 表示占用高度为70% */
+    height: 80vh;       /* 80vh 表示占用高度为80% */
     padding: 10%;
 }
 h1,h2{
@@ -40,7 +40,7 @@ h1,h2{
 }
 .background{
     background: #eee;
-    opacity: 0.7;
+    opacity: 0.9;
     max-width: 70vw;  /*  在谷歌上支持，其他浏览器支持不太好  */
     margin: 0,auto;
     padding: 20px 0;

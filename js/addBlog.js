@@ -11,7 +11,7 @@ var blog = {
 
 
 function insertHtml() {
-    var value = prompt('<input type="file">');
+    var value = prompt('请输入图片地址');
     ue.execCommand('insertHtml', value)
 }
 

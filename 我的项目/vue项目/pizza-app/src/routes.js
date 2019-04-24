@@ -50,5 +50,5 @@ export const routes = [
     ]},
     {path:'/login',name:"loginLink",component: Login},
     {path:'/register',name:"registerLink",component: Register},
-    {path:'*',redirect: '/'}                //    当用户输错地址时让它跳转到 Home 下
+    {path:'*',redirect: '/'}                //    重定向，当用户输错地址时让它跳转到 Home 下
   ]

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
-import {routes} from './routes'   //  引入 routes 文件
+import {routes} from './routes'   //  引入 routes 文件，没有default时要加{}
 
 Vue.use(VueRouter)       //   路由
 
@@ -9,10 +9,10 @@ Vue.use(VueRouter)       //   路由
 const router = new VueRouter({
   routes,
   mode:'history',    //   去掉路由地址中的  #  符号
-  scrollBehavior(to,from,savePosition){
+  scrollBehavior(to,from,savePosition){    
     // return { x: 0, y: 100}
     // return { selector: '.btn'}
-    if(savePosition) {    //    只有在浏览器里触发 前进后退按钮时才会触发
+    if(savePosition) {    //    只有在浏览器里触发 前进后退按钮时才会触发,保存页面的位置，返回时还在该位置。
       return savePosition;    
     }else{
        return{x: 0, y: 0}
