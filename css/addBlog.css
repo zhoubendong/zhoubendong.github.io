@@ -51,3 +51,27 @@ i{
   border: none;
   border-bottom: 2px solid #3690cf;
 }
+article #btns{
+  margin: 10px 0;
+  width: 100%;
+  background: #fff;
+}
+article #btns input{
+  width: 10em;
+  height: 50px;
+  font-size: 1.2em;
+  background-color: #409EFF;
+  border: 1px solid #409EFF;
+  border-radius: 0.4em;
+  cursor: pointer;
+  color: #fff;
+}
+article #btns input:hover{
+  opacity: 0.7;
+}
+article #btns .blank {
+  display: none;
+  color: red;
+  font-size: 14px;
+  margin: 20px 0 30px 0;
+}

@@ -7,7 +7,7 @@
           调色板
         </div>
         <input type="range" max="255" min="0" v-model="r">
-        <input type="range" max="255" min="0" v-model="g">
+        <input type="range" max="255" min="0" v-model="g">+
         <input type="range" max="255" min="0" v-model="b">
         <div>
           rgb为：{{`r：${r},g：${g},b：${b}`}}

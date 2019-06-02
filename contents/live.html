@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>东羽个人博客</title>
+    <title>东羽博客</title>
     <meta name="keywords" content="个人博客,WEB学习,WEB学习博客,东羽个人博客" />
     <meta name="description" content="个人博客,WEB学习,WEB学习博客,东羽个人博客" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +46,7 @@
                     <a href="#">学无止境</a>
                     <ul class="sub">
                         <li>
-                            <a href="live.html">慢生活</a>
+                            <a href="live.html">技术文章</a>
                         </li>
                         <li>
                             <a href="nice.html">美文欣赏</a>
@@ -59,21 +59,48 @@
                 </li>
             </ul>
             <div class="login">
-                    <div class="login-con">
-                      <img src="../images/登录.png" alt="">
-                      <a href="">登录</a>
-                    </div>
-                  </div>
+                <div class="login-con">
+                    <img src="../images/登录.png" alt="">
+                    <a href="login.html">登录</a>
+                </div>
+                <div class="logined">
+                    <img src="https://www.gravatar.com/avatar/e91407bbe0ef2dc6d250d827b4aa268d?s=200&r=pg&d=mm" alt="">
+                    <span class="user_name"></span>
+                </div>
+            </div>
+            <div class="mouse">
+                <div class="quit">
+                    <span>退出登录</span>
+                </div>
+            </div>
         </nav>
     </header>
     <footer>
         <p>Design by
             <a href="http://www.dystep.club" target="_blank">东羽博客</a>
-            <a href="#">© 2019   east  |  </a>
-           
+            <a href="#">© 2019 east | </a>
+
         </p>
     </footer>
     <a href="#" class="cd-top">Top</a>
 </body>
+<script>
+    if (localStorage.token) {
+        $('header .login-con').css('display', 'none');
+        $('header .logined').css('display', 'block');
+        $('header .logined .user_name').text(`${localStorage.user_name}`);
+        $('header .logined .user_name').mouseenter(function () {
+            $('header .mouse').css('display', 'block');
+
+        });
+        $('header .logined .user_name').click(function () {
+            $('header .mouse').css('display', 'none');
+        });
+        $('header .mouse span').click(function () {
+            localStorage.clear();
+            location.replace(location.href);
+        })
+    }
+</script>
 
 </html>

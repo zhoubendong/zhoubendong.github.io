@@ -1,8 +1,11 @@
 @charset "utf-8";
 @media screen and (min-width: 1024px) and (max-width: 1199px) {
+#down .wap { width: 50%}
+
 header { width: 96%; margin: auto }
 }
 @media screen and (min-width: 960px) and (max-width: 1023px) {
+#down .wap-b .cancel { width: 48%}
 header { width: 96%; margin: auto }
 article { width: 96% }
 .editor_con { width: 90% }
@@ -10,6 +13,7 @@ nav { width: 96%; }
 .wall_a { width: 100% }
 }
 @media screen and (min-width: 768px) and (max-width: 959px) {
+#down .wap { width: 60%}
 header { width: 96%; margin: auto }
 article { width: 96% }
 .editor_con { width: 100% }
@@ -37,6 +41,9 @@ nav { width: 100%; position: relative }
 .toppic li h2 { padding: 5px 10px; font-size: 14px }
 }
  @media only screen and (min-width: 480px) and (max-width: 767px) {
+#logins,#zuces{ width: 900px}
+#down .wap { width: 60%}
+#down .wap-b .cancel { width: 48%}
 header { width: 96%; margin: auto }
 article { width: 96% }
 .editor_con span { width:20% }
@@ -74,6 +81,9 @@ main { width: 100% }
 #starlist .sub li:last-child{ padding-bottom:0}
 }
 @media only screen and (max-width: 479px) {
+#logins,#zuces{ width: 900px}
+#down .wap { width: 70%}
+#down .wap-b .cancel { width: 47%}
 header { width: 96%; margin: auto }
 article { width: 96% }
 .editor_con { width:100% }

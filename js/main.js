@@ -116,47 +116,26 @@ $(document).ready(function () {
     // 		oUls[this.index].style.display = "block"
     // 	}	
     // };
-
+    
     $.ajax({
         type: "get",
         data: {},
-        url: "https://wd7869756315ozmdzd.wilddogio.com/posts.json",
+        url: "http://localhost:5001/api/profile",
         dataType: "json",
         success: function (res) {
+            // console.log(res)
             let blogsArray = [];
             for (let i in res) {
                 blogsArray.push(res[i]);
             }
             let data = blogsArray.reverse();
             show(data);
-                 //  arr.filter对ie做兼容
-            if (!Array.prototype.filter) {
-                Array.prototype.filter = function(callback) {
-                  // 获取数组长度
-                  var len = this.length;
-                  if(typeof callback != "function") {
-                      throw new TypeError();
-                  }
-                  // 创建新数组，用于承载经回调函数修改后的数组元素
-                  var newArr = new Array();
-                  // thisArg为callback 函数的执行上下文环境
-                  var thisArg = arguments[1];
-                  for(var i = 0; i < len; i++) {
-                      if(i in this) {
-                          if(callback.call(thisArg, this[i], i, this)) {
-                              newArr.push(val);
-                          }
-                      }
-                  }
-                  return newArr;
-              }
-            }
             //      搜索功能      
             $('.search_ico').click(function () {
                 $('.search_bar').toggleClass('search_open');
                 if ($('#keyboard').val() != '') {
                     var newArr = data.filter((data) => {
-                        return data.content.match($('#keyboard').val());
+                        return data.contentTxt.match($('#keyboard').val());
                     });
                     show(newArr);
                 } else {
@@ -166,7 +145,7 @@ $(document).ready(function () {
             });
 
             //   标签按钮
-            $('.lmname').click(function () {
+            // $('.lmname').click(function () {
 
                 // var list = this.$('.show_blogs').find(".blogs");
                 // $.each(list, function (idx, element) {
@@ -179,36 +158,30 @@ $(document).ready(function () {
                 //     return data.categories.match(newsid);
                 // });
                 // show(data3);
-            });
+            // });
         },
         error: (error) => {
             console.log(error);
         }
     })
+    //  用户头像显示判断
+    if (localStorage.token) {
+      
+        $('header .login-con').css('display', 'none');
+        $('header .logined').css('display', 'block');
+        $('header .logined .user_name').text(`${localStorage.user_name}`);
+        $('header .logined .user_name').mouseenter(function () {
+            $('header .mouse').css('display', 'block');
 
-
-    // var jsondata = {
-    //     email: "13920438325@163.com",
-    //     password: "123456"
-    // };
-
-    // $.ajax({
-    //     type: "post",
-    //     data: jsondata,
-    //     url: "http://localhost:5001/api/users/login",
-    //     dataType: "json",
-
-    //     // headers: {
-    //     //     Accept: "application/json; charset=utf-8"
-    //     // },
-    //     success: (res) => {
-
-    //         console.log(res);
-    //     },
-    //     error: (error) => {
-    //         console.log('请求失败');
-    //     }
-    // })
+        });
+        $('header .logined .user_name').click(function () {
+            $('header .mouse').css('display', 'none');
+        });
+        $('header .mouse span').click(function() {
+            localStorage.clear();
+            location.replace(location.href);
+        })
+    }
 
 });
 
@@ -219,26 +192,26 @@ function show(datas) {
         $('.show_blogs').append(`
                 <div class="blogs" data-scroll-reveal="enter bottom over 1s">
                 <h3 class="blogtitle">
-                 <a href="contents/blog.html" >${datas[i].title.slice(0, 35)}</a>
+                 <a href="contents/blog.html?${datas[i]._id}">${datas[i].title.slice(0, 35)}</a>
                 </h3>
                 <span class="blogpic">
-                    <a href="contents/blog.html" title="">
+                    <a href="contents/blog.html?${datas[i]._id}" title="">
                     <img src="images/1.jpg" alt="">
                     </a>
                 </span>
-                <p class="blogtext">${datas[i].content.slice(0, 120) + " ..."} </p>
+                <p class="blogtext">${datas[i].contentTxt.slice(0, 120) + " ..."} </p>
                 <div class="bloginfo">
                     <ul>
                     <li class="author">
                         <a href="/">${datas[i].author}</a>
                     </li>
                     <li class="lmname">
-                        <a href="#">${datas[i].categories[0]}</a>
+                        <a href="#">${datas[i].categories}</a>
                     </li>
-                    <li class="timer">${datas[i].createdate}</li>
+                    <li class="timer">${datas[i].date}</li>
                     <li class="view">
-                        <span>3456</span>已阅读</li>
-                    <li class="like">100</li>
+                        <span>345</span>已阅读</li>
+                    
                     </ul>
                 </div>
                 </div>

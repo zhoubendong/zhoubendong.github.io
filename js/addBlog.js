@@ -4,52 +4,63 @@ var blog = {
     title: "",
     content: "",
     contentTxt: "",
-    category: "",
+    categories: "",
     author: "",
-    createdate: ""
+    date: ""
 };
+function setFocus() {
+    UE.getEditor('editor').focus();
 
-
-function insertHtml() {
-    var value = prompt('请输入图片地址');
-    ue.execCommand('insertHtml', value)
 }
-
 function getContent() {
     blog.content = ue.getContent();
     blog.title = $('.title').val();
-    blog.createdate = new Date().toLocaleDateString();
+    blog.date = new Date().toLocaleDateString();
     blog.contentTxt = ue.getContentTxt();
+    blog.author = localStorage.user_name;
     var obj = $('.classify input');
     for (var i = 0; i < obj.length; i++) {
         if (obj[i].checked) {
-            blog.category = obj[i].value
+            blog.categories = obj[i].value
         }
     }
-
-    console.log(blog);
 }
 $(function () {
-    $("#add").bind("click", function () {
+    if (!localStorage.token) {
+        $('article').css('display', 'none');
+        $('#down').css('display', 'flex');
+    }
+
+})
+
+$(function () {
+
+    $("#btns input").click(function () {
         getContent();
-        if ($('.title') != '' && ue.getContentTxt() != '') {
+        if ($('.title').val() != '' && ue.getContentTxt() != '') {
             $.ajax({
                 type: "post",
                 data: blog,
-                url: "https://wd7869756315ozmdzd.wilddogio.com/posts.json",
+                url: "http://localhost:5001/api/profile/add",
                 dataType: "json",
-                contentType: 'application/json',
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader("Authorization", localStorage.token);
+                },
                 success: (res) => {
                     console.log(res)
-                    $.MsgBox.Alert("消息", "哈哈，您的博客文章已发布成功！！！");
+                    layer.confirm('你的博客已发布成功！！！', {
+                        btn: ['确定'], //可以无限个按钮
+                        area: ['30vw', '200px'],
+                    }, function (index, layero) {
+                        window.location.href = '../index.html'
+                    });
                 },
                 error: (error) => {
                     console.log(error);
                 }
             })
         } else {
-            $.MsgBox.Alert("消息", "发布失败，请填写标题和文章呦！！！");
-
+            $('#btns .blank').css('display', 'block')
         }
     });
 })
