@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/login.js"></script>
+    <link rel="stylesheet" href="../css/m.css">
+    <title>东羽博客</title>   
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .zuce {
+            /* float: left; */
+            /* display: inline-block; */
+            position: absolute;
+            /* overflow: hidden; */
+            width: 100%;
+            height: 100%;
+            background: url('../images/bg.jpg') no-repeat;
+            border: 1px solid red;
+            background-size: 100% 100%;
+        }
+
+         .logo {
+            height: 60px;
+            width: 80px;
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        .form_container {
+            width: 25em;
+            height: 210px;
+            position: absolute;
+            top: 20%;
+            left: 34%;
+            padding: 25px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .form_container .manage_tip .title {
+            font-weight: bold;
+            font-size: 1.7em;
+            color: #fff;
+        }
+
+        .zuceForm {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px 40px 20px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 5px 10px #cccc;
+            font-size: 0.9em;
+        }
+        .zuceForm span{
+            color: rgb(204, 90, 90);
+        }
+        .zuceForm input{
+            width: 19em;
+            height: 38px;
+            margin-left: 1em;
+            background: #f8fcd2;
+            border: 1px solid #ddd;
+            margin-bottom: 1.6em;
+            border-radius: 0.3em;
+        }
+
+        .zuceForm .button {
+            width: 18em;
+            margin-left: 4.8em;
+        }
+
+        .regist {
+            width: 100%;
+            height: 3em;
+            background-color: #409EFF;
+            border: 1px solid #409EFF;
+            border-radius: 0.4em;
+            color: #fff;
+            cursor: pointer;
+        }
+        .regist:hover{
+            opacity: 0.7;
+        }
+        .zuce .zuceForm .password .notic{
+            color: red;
+            font-size: 0.8em;
+            display: none;
+            margin-bottom: 0.9em;
+            height: 20px;
+            line-height: 20px;
+            align-content: center;
+        } 
+    </style>
+</head>
+
+<body>
+    <div class="zuce" id="zuces">
+        <section class="form_container">
+            <div class="manage_tip">
+                <img src="../images/logo2.png" class='logo' alt="">
+                <span class="title">东羽博客</span>
+            </div>
+            <div class="zuceForm" label-width="60px">
+                <div class="name">
+                    <span>*</span>&nbsp;用户
+                    <input placeholder="请输入用户名" type="text" maxlength="12">
+                </div>
+                <div class="email">
+                    <span>*</span>&nbsp;邮箱
+                    <input placeholder="请输入邮箱" type="email">
+                </div>
+                <div class="password">
+                    <span>*</span>&nbsp;密码
+                    <input placeholder="请输入密码" type="password" maxlength="10">
+                    <div class="notic">1321</div>
+                </div>
+                <div class="button">
+                    <button  class="regist">注册</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
